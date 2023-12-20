@@ -1,38 +1,88 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@-webkit-keyframes scrollUp {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(calc(-250px * 3));
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+@keyframes scrollUp {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(calc(-250px * 3));
+  }
+}
+
+@-webkit-keyframes scrollDown {
+  0% {
+    transform: translateY(calc(-250px * 7));
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes scrollDown {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(calc(-250px * 7));
+  }
+}
+.slider {
+  background: white;
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
+  margin: auto;
+  position: relative;
+  width: 270px;
+  height:100vh;
+}
+.slider::before {
+  background: linear-gradient(to bottom, white 0%, rgba(255, 255, 255, 0) 100%);
+  content: "";
+  height: 100px;
+  position: absolute;
+  width: 270px;
+  z-index: 2;
+}
+.slider::after {
+  right: 0;
+  top: 0;
+  transform: rotateZ(180deg);
+}
+.slider::before {
+  left: 0;
+  top: 0;
+}
+.slider .slide-track-up {
+  -webkit-animation: scrollUp 40s linear infinite;
+          animation: scrollUp 40s linear infinite;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: column-reverse;
+  width: calc(250px );
 }
 
-.App-link {
-  color: #61dafb;
+.slider .slide-track-down {
+  -webkit-animation: scrollDown 40s linear infinite;
+          animation: scrollDown 40s linear infinite;
+  display: flex;
+  flex-direction: column-reverse;
+  width: calc(250px * 14);
+}
+.slider .slide {
+  height: 300px;
+  width: 250px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.slide img{
+  border-radius: 30px;
+  margin: 10px;
+  aspect-ratio: 1;
+  object-fit: cover;
 }
