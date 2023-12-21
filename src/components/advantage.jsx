@@ -3,12 +3,24 @@ import img2 from '../images/img2.jpg'
 import img3 from '../images/img3.jpg'
 import img4 from '../images/img4.jpg'
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import MovingText from 'react-moving-text'
 const imgArr = [img1,img2,img3,img4];
 const Advantage = ()=>{
     return (
         <div class="flex justify-center align-middle h-screen">
             <div class='flex  justify-center'>
-                <h1 class='text-8xl absolute'>Our Advantages</h1>
+            <MovingText
+                type="fadeInFromBottom"
+                duration="1000ms"
+                delay="0s"
+                direction="normal"
+                timing="ease"
+                iteration="1"
+                fillMode="none">
+                    <h1 class='text-8xl absolute'>Our Advantages</h1>
+
+                </MovingText>
+              
                 <div class=''>
                     {imgArr.map((imgPath,index)=>{
                         let rotate;

@@ -8,27 +8,19 @@ import img1 from '../images/img1.jpg'
 import img2 from '../images/img2.jpg'
 import img3 from '../images/img3.jpg'
 import img4 from '../images/img4.jpg'
-const Carousal = ()=>{
+const Carousal = ({dir})=>{
+    const direction = dir?'slide-track-down':'slide-track-up';
     const arr = [car1,car2,car3,car4,img1,img2,img3,img4,car1,car2,car3,car4,img1,img2,img3,img4];
 
-    const [start,setStart]=useState(0);
-
-    useEffect(()=>{
-        setInterval(()=>{
-           setStart(start+1) 
-        },40)
-    },[])
     return (<div class="slider">
-	<div class="slide-track-up">
+	<div class={direction}>
    
 		{arr.map((item,index)=>{
-            if(index>=start&& index<start+6){
                 return (
                     <div class="slide">
                         <img src={item} height="350" width="250" alt="" />
                     </div> 
                 )
-            }
         })}
 		
 		
