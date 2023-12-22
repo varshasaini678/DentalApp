@@ -1,20 +1,44 @@
-import img1 from '../images/img1.jpg'
-import img2 from '../images/img2.jpg'
-import img3 from '../images/img3.jpg'
-import img5 from '../images/img5.jpg'
+import img1 from '../images/jpeg-optimizer_img1.jpg'
+import img2 from '../images/jpeg-optimizer_img2.jpg'
+import img3 from '../images/jpeg-optimizer_img3.jpg'
+import img5 from '../images/jpeg-optimizer_img5.jpg'
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import '../text.css';
-import { useState } from 'react';
+import { useState ,useEffect} from 'react';
 
 import CircleIcon from '@mui/icons-material/Circle';
 import { useRef } from 'react';
 const imgArr = [img1,img2,img3,img5];
 
 const LandingContent = ()=>{
+    const [isIntersecting, setIsIntersecting] = useState(false);
     const container = useRef();
     const txt = useRef();
     const [upIndex,setIndex]=useState([]);
+    const [reveal,setClass] = useState('');
+
+    useEffect(()=>{
+        setTimeout(()=>{
+            setClass('reveal');
+        },300)
+    },[]);
+    useEffect(() => {
+        const observer = new IntersectionObserver(([entry]) => {
+            setIsIntersecting(entry.isIntersecting);
+
+          },   { rootMargin: "-20px"});
+          observer.observe(container.current);
+          return () => observer.disconnect();
+      }, []);
+      console.log(isIntersecting);
+
+    let classes = isIntersecting?" transform-text":""
+   useEffect(()=>{
+        if(!isIntersecting){
+            setIndex([]);
+        }
+   },[isIntersecting])
   
   
     useGSAP(
@@ -36,8 +60,7 @@ const LandingContent = ()=>{
         <div ref={container} class='flex justify-around h-screen'>
            
             <div id="swipeUp" class="self-center text-8xl" ref={txt}>
-                <h6>Our Advantages</h6>
-                <div></div>
+                <div class={"swipeup-text "+reveal}>OUR ADVANTAGES</div>
                 <div class=''>
                     {imgArr.map((imgPath,index)=>{
                         let rotate;

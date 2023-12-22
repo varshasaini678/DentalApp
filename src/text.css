@@ -9,6 +9,15 @@
   }
 
 
+  @keyframes twist {
+    100% {
+        --tw-rotate: -40deg;
+        transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
+    }
+  }
+
+
+
 .txt{
     transition: all 950ms ease 300ms;
 }
@@ -28,12 +37,208 @@
     top: -100%;
     left: 30%;
     border-radius: 1.5rem;
-    transition: all 1s;
+    transition: all 1s ease 500ms;
 }
 
 .centered.moveup{
     top: -700px;
+   animation: twist 500ms ease-out 200ms;
 }
 
+.transform-text > div >.round-bg {
+    width: 100px;
+    transition: all 1s ease 1s;
+  }
+
+.round-bg {
+    width: 0;
+    height: 100px;
+    border-radius: 100%;
+    background: #c9e1f4 no-repeat center;
+    background-size: cover;
+    display: block;
+    position: relative;
+  }
+  .round-bg.round-sm  {
+    height: 25px;
+    margin-right: 10px;
+  }
+  .round-bg.round-sm svg {
+    font-size: 18px;
+  }
+
+  .transform-text > div > div> div >.round-bg {
+    width: 25px;
+    transition: all 1s ease 1s;
+  }
 
   
+
+.round-bg svg{
+    top: 12%;
+    position: absolute;
+    left: 11%;
+    font-size: 78px;
+    opacity: 0;
+}
+.transform-text  div >.round-bg svg{
+    opacity: 1;
+    transition: all 500ms ease 1800ms;
+  }
+  
+  .round-img {
+    width: 0;
+    height: 100px;
+    border-radius: 100%;
+    object-fit: cover;
+  }
+  .round-img-overlap{
+    margin-right: -20px;
+  }
+.round-img-overlap > .round-img{
+    height: 60px;
+    
+  }
+  .transform-text > div > div >.round-img{
+    width: 100px;
+    transition: all 1s ease 1s;
+
+  }
+  .transform-text > div > .round-img-overlap > .round-img{
+    width: 60px;
+    transition: all 1s ease 1s;
+  }
+  
+
+
+  .round-txt-bg {
+    width: 0;
+    height: 40px;
+    border-radius: 30px;
+    background: #c9e1f4 no-repeat center;
+    position: relative;
+    padding: 7px 0px;
+
+  }
+
+  .round-txt-bg > div{
+    opacity: 0;
+    width: 0;
+    position: absolute;
+  }
+
+  .transform-text .round-txt-bg > div{
+    transition: all 500ms ease 1800ms;
+    opacity: 1;
+    width: 100%;
+  }
+
+  .transform-text div >.round-txt-bg {
+    width: 130px;
+    padding: 7px 17px;
+    transition: all 1s ease 1s;
+  }
+
+  .transform-text .self-start {
+    align-self: center;
+    transition: all 1s ease 1s;
+
+  }
+
+
+  .tiny-text{
+    opacity: 0;
+  }
+  .transform-text .tiny-text{
+    transition: all 500ms ease 1800ms;
+    opacity: 1;
+    width: 100%;
+  }
+
+
+  .header-icon-text{
+    width: 0;
+    overflow: hidden;
+
+  }
+
+  .header-icon-text.show{
+    width: 100%;
+    transition: all 2s ease 200ms
+
+  }
+
+
+
+
+
+  .loader{
+    background-color: #fcfbe7;
+    height: 100vh;
+  }
+  .loader .round-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    background: #fbfcfc no-repeat center;
+    background-size: cover;
+    display: block;
+    position: relative;
+  }
+  .loader svg{
+    color: #e9690b
+  }
+  .loader>div>svg{
+    font-size: 60px;;
+  }
+  .loader>.hide-icons> #moving{
+    opacity: 0;
+    display: none;
+    transition: opacity 400ms ease-out,display 100 ease 300ms;
+  }
+
+  .hide-icons> #static{
+    opacity: 1;
+    font-size: 90px;
+    transition: all 400ms ease-out;
+  }
+
+  #loader-name{
+    height: 0;
+    opacity: 0;
+  }
+  .hide-icons + #loader-name{
+    height: 50px;
+    opacity: 1;
+    transition: all 400ms ease-out 200ms;
+  }
+
+  #static{
+    opacity: 0;
+  }
+
+  /*swipe up text*/
+
+  .swipeup-text{
+    height: 0;
+    overflow: hidden;
+  }
+
+  .swipeup-text.reveal , .transform-text .swipeup-text{
+    height: 100px;
+    transition: height 1s ease-out 1s;
+
+  }
+
+  .swipe-text{
+    overflow: hidden;
+    line-height: 2;
+    height: 0;
+  }
+
+
+  .transform-text .swipe-text{
+    line-height: 1;
+    height: 100px;
+    transition: all 1s ease-out 200ms;
+  }

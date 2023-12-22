@@ -1,5 +1,4 @@
 import '../text.css';
-import MovingText from 'react-moving-text'
 import { useState, useRef, useEffect} from "react"; 
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';

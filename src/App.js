@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import Header from './components/header';
 import Advantage from './components/advantage';
 import Slider from './components/slider';
-import Carousal from './components/carousal';
+import Carousal from './modules/carousal';
 import MovingText from 'react-moving-text'
 import Explore from './components/explore';
 
