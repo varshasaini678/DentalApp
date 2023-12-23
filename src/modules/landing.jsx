@@ -6,8 +6,6 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import '../text.css';
 import { useState ,useEffect} from 'react';
-
-import CircleIcon from '@mui/icons-material/Circle';
 import { useRef } from 'react';
 const imgArr = [img1,img2,img3,img5];
 
@@ -37,6 +35,9 @@ const LandingContent = ()=>{
    useEffect(()=>{
         if(!isIntersecting){
             setIndex([]);
+            setClass('');
+        }else{
+            setClass('reveal');
         }
    },[isIntersecting])
   

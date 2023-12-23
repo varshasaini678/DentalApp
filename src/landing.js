@@ -1,17 +1,14 @@
-import logo from './logo.svg';
 import './App.css';
-import Button from '@mui/material/Button';
 import Header from './modules/header';
 import Footer from './modules/footer';
 import LandingContent from './modules/landing'
 import Carousal from './modules/carousal';
-import MovingText from 'react-moving-text'
 import ExploreService from './modules/exploreService';
 import TextTransitions from './modules/textTransitions';
 import { useEffect, useState } from 'react';
 import Loader from './modules/loader';
 function Landing() {
-    const [showLoader,setShowLoader]=useState(false);
+    const [showLoader,setShowLoader]=useState(true);
     useEffect(()=>{
         setTimeout(()=>{
             setShowLoader(false);
