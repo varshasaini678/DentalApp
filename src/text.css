@@ -240,21 +240,39 @@
     transition: all 1s ease-out 200ms;
   }
 
-  .landing-img-container {
+.landing-img-container {
     position: absolute;
     top: -100%;
     left: 30%;
     text-align: center;
+
+}
+.rotate.landing-img-container {
+    transform: rotate(-32deg);
+    transition: transform 1200ms ease 1000ms;
+}
+.rotate.landing-img-container+ .rotate.landing-img-container {
+    transform: rotate(-24deg);
+    transition: transform 900ms ease 1000ms;
+}
+.rotate.landing-img-container+ .rotate.landing-img-container+ .rotate.landing-img-container {
+    transform: rotate(-18deg);
+    transition: transform 600ms ease 1000ms;
+
+}
+.rotate.landing-img-container+ .rotate.landing-img-container+ .rotate.landing-img-container + .rotate.landing-img-container{
+    transform: rotate(-12deg);
+    transition: transform 300ms ease 1000ms;
+
 }
 .landing-img-container img{
     border-radius: 1.5rem;
 }
 
-.landing-img-container.moveup{
+#swipeUp .rotate.landing-img-container.moveup{
     top: -1700px;
     transform: rotate(-40deg);
     transition: transform 700ms ease 100ms,top 2s ease 700ms;
-
 }
 
   .landing-img-container .landing-centered {

@@ -7,6 +7,7 @@ import { useGSAP } from '@gsap/react';
 import '../text.css';
 import { useState ,useEffect} from 'react';
 import { useRef } from 'react';
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 const imgArr= [
     {
         path:img1,
@@ -31,10 +32,12 @@ const LandingContent = ()=>{
     const txt = useRef();
     const [upIndex,setIndex]=useState([]);
     const [reveal,setClass] = useState('');
+    const [rotateClass,setRotateClass] = useState('');
 
     useEffect(()=>{
         setTimeout(()=>{
             setClass('reveal');
+            setRotateClass('rotate')
         },300)
     },[]);
     useEffect(() => {
@@ -50,7 +53,7 @@ const LandingContent = ()=>{
     let classes = isIntersecting?" transform-text":""
    useEffect(()=>{
         if(!isIntersecting){
-            setIndex([]);
+            //setIndex([]);
             setClass('');
         }else{
             setClass('reveal');
@@ -80,33 +83,20 @@ const LandingContent = ()=>{
                 <div class={"swipeup-text "+reveal}>OUR ADVANTAGES</div>
                 <div class=''>
                     {imgArr.map((item,index)=>{
-                        let rotate;
-                        switch(index){
-                            case (0):
-                                rotate='-rotate-12';
-                                break;
-                            case (1):
-                                    rotate='-rotate-18';
-                                break;
-                                    
-                            case (2):
-                                rotate='-rotate-24';
-                                break;
-
-                            case (3):
-                                rotate='-rotate-30';
-                                break;
-                        }
+                        let rotate='';
                         if(upIndex.includes(index)){
                             rotate+=' moveup'
                         }
                         return (
-                            <div className={"landing-img-container "+rotate}>
+                            <div className={"landing-img-container "+rotate+" "+rotateClass}>
                                 <img height="300" width="220"  src={item.path} onClick={()=>handleMoveUp(index)}/>
                                 <div className='landing-centered'>{item.text}</div>
                             </div>)
                     })}
                 </div>
+                {/*<div>
+                    <a href='#secondPage'><ArrowDownwardIcon/></a>
+                </div>*/}
             </div>
             
         </div>
