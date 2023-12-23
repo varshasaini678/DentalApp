@@ -7,8 +7,24 @@ import { useGSAP } from '@gsap/react';
 import '../text.css';
 import { useState ,useEffect} from 'react';
 import { useRef } from 'react';
-const imgArr = [img1,img2,img3,img5];
-
+const imgArr= [
+    {
+        path:img1,
+        text:'Advance Technology'
+    },
+    {  
+        path:img2,
+        text:'Convinience'
+    }, 
+    {  
+        path:img3,
+        text:'Modern Solution'
+    }, 
+    {  
+        path:img5,
+        text:'Appointments'
+    },
+]
 const LandingContent = ()=>{
     const [isIntersecting, setIsIntersecting] = useState(false);
     const container = useRef();
@@ -63,7 +79,7 @@ const LandingContent = ()=>{
             <div id="swipeUp" class="self-center text-8xl" ref={txt}>
                 <div class={"swipeup-text "+reveal}>OUR ADVANTAGES</div>
                 <div class=''>
-                    {imgArr.map((imgPath,index)=>{
+                    {imgArr.map((item,index)=>{
                         let rotate;
                         switch(index){
                             case (0):
@@ -85,8 +101,11 @@ const LandingContent = ()=>{
                             rotate+=' moveup'
                         }
                         return (
-                        <img height="300" width="220" className={"centered "+rotate} src={imgPath} onClick={()=>handleMoveUp(index)}/>
-                    )})}
+                            <div className={"landing-img-container "+rotate}>
+                                <img height="300" width="220"  src={item.path} onClick={()=>handleMoveUp(index)}/>
+                                <div className='landing-centered'>{item.text}</div>
+                            </div>)
+                    })}
                 </div>
             </div>
             
