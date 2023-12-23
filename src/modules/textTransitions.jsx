@@ -30,7 +30,7 @@ function TextTransitions() {
 
     let classes = isIntersecting?" transform-text":""
   return (
-    <div class={"flex flex-col h-screen items-center"+classes} ref={ref} id="secondPage">
+    <div class={"flex flex-col h-screen items-center justify-center"+classes} ref={ref} id="secondPage">
         <div class="flex mb-7 mt-10 items-center">
             <div class="text-8xl swipe-text">REVOLUTIONIZING</div>
             <div class="flex flex-col pl-5">
