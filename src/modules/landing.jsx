@@ -4,6 +4,8 @@ import '../text.css';
 import { useState ,useEffect} from 'react';
 import { useRef } from 'react';
 import { imgArr } from '../config';
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import { Link, animateScroll as scroll } from "react-scroll";
 
 const LandingContent = ()=>{
     const [isIntersecting, setIsIntersecting] = useState(false);
@@ -31,7 +33,7 @@ const LandingContent = ()=>{
 
    useEffect(()=>{
         if(!isIntersecting){
-            setClass('');
+         //   setClass('');
         }else{
             setClass('reveal');
         }
@@ -55,6 +57,7 @@ const LandingContent = ()=>{
     }
 
     return (
+        <>
         <div ref={container} class='flex justify-around h-screen'>
            
             <div id="swipeUp" class="self-center text-8xl" ref={txt}>
@@ -71,9 +74,22 @@ const LandingContent = ()=>{
                             </div>)
                     })}
                 </div>
+               
             </div>
             
+           
         </div>
+        
+        <Link 
+                    to="secondPage"
+                    spy={true}
+                    smooth={true}
+                    duration={700}
+                ><div className='down-link'>
+                    <ArrowDownwardIcon/>
+                    </div>
+                </Link>
+        </>
     )
 }
 export default LandingContent

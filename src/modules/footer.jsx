@@ -18,7 +18,7 @@ const Footer = ()=>{
                     <InstagramIcon/>
                     <YouTubeIcon/>
                 </div>
-                <div>Best StartUp of 2023</div>
+                <div>Created By VARSHA SAINI</div>
             </div>
         </div>
     )

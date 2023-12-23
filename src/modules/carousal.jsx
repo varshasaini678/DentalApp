@@ -7,7 +7,7 @@ const Carousal = ({dir})=>{
     const direction = dir?'slide-track-down':'slide-track-up';
     
     return (
-    <div class="slider">
+    <div class="slider" id="slider">
         <div class={direction}>
             {carousalArr
             .map((item)=>{

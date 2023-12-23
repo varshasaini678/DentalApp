@@ -11,6 +11,8 @@ import SpaOutlinedIcon from '@mui/icons-material/SpaOutlined';
 import HourglassEmptyOutlinedIcon from '@mui/icons-material/HourglassEmptyOutlined';
 import Brightness5OutlinedIcon from '@mui/icons-material/Brightness5Outlined';
 import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
+import { Link, animateScroll as scroll } from "react-scroll";
+
 function TextTransitions() {
   
     const [isIntersecting, setIsIntersecting] = useState(false);
@@ -71,6 +73,16 @@ function TextTransitions() {
             <div class="image-croper round-img-overlap"> <img class="round-img" src={img3}></img></div>
             <div class="image-croper round-img-overlap"> <img class="round-img" src={img5}></img></div>
 
+        </div>
+        <div className='get-started flex items-center self-middle'>
+            <Link 
+                to="slider"
+                spy={true}
+                smooth={true}
+                duration={700}
+            >
+              <div className=' self-middle flex items-center'>Get Started</div>
+            </Link>
         </div>
     </div>
   
